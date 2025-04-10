@@ -1,7 +1,10 @@
 package com.agrotis.challenge.adapters.laboratory;
 
+import com.agrotis.challenge.adapters.laboratory.payload.LaboratoryCustomDTO;
+import com.agrotis.challenge.adapters.laboratory.payload.LaboratoryFilterForm;
 import com.agrotis.challenge.adapters.laboratory.payload.LaboratoryForm;
 import com.agrotis.challenge.adapters.laboratory.payload.LaboratoryDTO;
+import com.agrotis.challenge.common.messageerror.MessageError;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -24,8 +27,10 @@ public interface LaboratoryAPI {
     ResponseEntity<LaboratoryDTO> updateLab(@PathVariable Long id, @Valid @RequestBody LaboratoryForm laboratoryForm);
 
     @DeleteMapping("/{id}")
-    ResponseEntity<Void> delete(@PathVariable Long id);
+    ResponseEntity<MessageError> delete(@PathVariable Long id);
 
-//    @GetMapping("/custom")
-//    ResponseEntity<List<LaboratoryDTO>> findCustom(@RequestParam LaboratoryFilterDTO filter);
+    @GetMapping("/allcustom")
+    ResponseEntity<List<LaboratoryCustomDTO>> findCustom(@Valid @RequestParam LaboratoryFilterForm filter);
+
+
 }

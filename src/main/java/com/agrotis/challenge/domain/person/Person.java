@@ -21,4 +21,14 @@ public class Person {
     @ManyToOne
     @JoinColumn(name = "laboratory_id")
     private Laboratory laboratory;
+
+    public Person() {
+    }
+
+    public Person(String name, LocalDate initialDate, LocalDate endDate, Laboratory laboratory) {
+        this.name = name;
+        this.initialDate = initialDate;
+        this.endDate = endDate;
+        this.laboratory = laboratory;
+    }
 }

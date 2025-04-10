@@ -10,6 +10,7 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
+@Table(name = "laboratory")
 public class Laboratory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,4 +19,12 @@ public class Laboratory {
     private String name;
     @OneToMany(mappedBy = "laboratory", cascade = CascadeType.ALL)
     private List<Person> people;
+
+    public Laboratory() {
+    }
+
+    public Laboratory(String code, String name) {
+        this.code = code;
+        this.name = name;
+    }
 }
