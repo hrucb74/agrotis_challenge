@@ -22,7 +22,7 @@ This project is an API developed to meet the requirements of the Agrotis challen
 
 ## How to Run the Project
 
-1. **Clone the Repository**:
+1. **Clone the Repository**
 
 2. **Navigate to the Project Directory**:
    ```bash
