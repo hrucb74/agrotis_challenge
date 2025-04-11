@@ -47,7 +47,7 @@ class LaboratoryServiceImplTest {
     @Test
     void testFindById() {
         Long id = 1L;
-        Laboratory laboratory = new Laboratory("Lab Name", "Code");
+        Laboratory laboratory = new Laboratory("Code","Lab Name");
         when(laboratoryRepository.findById(id)).thenReturn(Optional.of(laboratory));
 
         LaboratoryDTO result = laboratoryService.findById(id);
