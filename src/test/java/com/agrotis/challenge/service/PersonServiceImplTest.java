@@ -1,6 +1,8 @@
 package com.agrotis.challenge.service;
+import com.agrotis.challenge.adapters.laboratory.payload.LaboratoryDTO;
 import com.agrotis.challenge.adapters.person.payload.PersonDTO;
 import com.agrotis.challenge.adapters.person.payload.PersonForm;
+import com.agrotis.challenge.adapters.property.payload.PropertyDTO;
 import com.agrotis.challenge.application.laboratory.LaboratoryService;
 import com.agrotis.challenge.application.person.PersonServiceImpl;
 import com.agrotis.challenge.application.property.PropertyService;
@@ -50,22 +52,47 @@ class PersonServiceImplTest {
     void testCreatePerson() {
         PersonForm form = new PersonForm();
         form.setName("John Doe");
-        form.setLaboratoryId(1L);
-        form.setPropertyIds(List.of(1L, 2L));
+        form.setInitialDate(LocalDate.of(2023, 1, 1));
+        form.setEndDate(LocalDate.of(2023, 12, 31));
+
+        PropertyDTO property1 = new PropertyDTO();
+        property1.setId(1L);
+        property1.setName("Property 1");
+
+        PropertyDTO property2 = new PropertyDTO();
+        property2.setId(2L);
+        property2.setName("Property 2");
+
+        form.setPropertyInfos(List.of(property1, property2));
+
+        LaboratoryDTO laboratoryDTO = new LaboratoryDTO();
+        laboratoryDTO.setId(1L);
+        laboratoryDTO.setName("Laboratory 1");
+        form.setLaboratory(laboratoryDTO);
 
         Laboratory laboratory = new Laboratory();
-        Property property1 = new Property();
-        Property property2 = new Property();
-        Person person = new Person("John Doe", null, null, laboratory);
+        laboratory.setId(1L);
+        laboratory.setName("Laboratory 1");
+
+        Property propertyEntity1 = new Property();
+        propertyEntity1.setId(1L);
+        propertyEntity1.setName("Property 1");
+
+        Property propertyEntity2 = new Property();
+        propertyEntity2.setId(2L);
+        propertyEntity2.setName("Property 2");
 
         when(laboratoryService.getLaboratoryEntityById(1L)).thenReturn(laboratory);
-        when(propertyService.getPropertyEntityById(1L)).thenReturn(property1);
-        when(propertyService.getPropertyEntityById(2L)).thenReturn(property2);
+        when(propertyService.getPropertyEntityById(1L)).thenReturn(propertyEntity1);
+        when(propertyService.getPropertyEntityById(2L)).thenReturn(propertyEntity2);
+
+        Person person = new Person("John Doe", LocalDate.of(2023, 1, 1), LocalDate.of(2023, 12, 31), laboratory);
+        person.setProperties(List.of(propertyEntity1, propertyEntity2));
         when(personRepository.save(any(Person.class))).thenReturn(person);
-
         PersonDTO result = personService.createPerson(form);
-
         assertNotNull(result);
+        assertEquals("John Doe", result.getName());
+        assertEquals("Laboratory 1", result.getLaboratoryName());
         verify(laboratoryService, times(1)).getLaboratoryEntityById(1L);
         verify(propertyService, times(2)).getPropertyEntityById(anyLong());
         verify(personRepository, times(1)).save(any(Person.class));
@@ -109,24 +136,37 @@ class PersonServiceImplTest {
         Long id = 1L;
         PersonForm form = new PersonForm();
         form.setName("Updated Name");
-        form.setLaboratoryId(1L);
-        form.setPropertyIds(List.of(1L, 2L));
+        form.setInitialDate(LocalDate.of(2023, 1, 1));
+        form.setEndDate(LocalDate.of(2023, 12, 31));
+
+        PropertyDTO property1 = new PropertyDTO();
+        property1.setId(1L);
+        property1.setName("Property 1");
+
+        PropertyDTO property2 = new PropertyDTO();
+        property2.setId(2L);
+        property2.setName("Property 2");
+
+        form.setPropertyInfos(List.of(property1, property2));
+
+        LaboratoryDTO laboratory = new LaboratoryDTO();
+        laboratory.setId(1L);
+        laboratory.setName("Laboratory 1");
+        form.setLaboratory(laboratory);
 
         Person person = new Person();
         person.setName("Original Name");
-        Laboratory laboratory = new Laboratory();
-        Property property1 = new Property();
-        Property property2 = new Property();
-
         when(personRepository.findById(id)).thenReturn(Optional.of(person));
-        when(laboratoryService.getLaboratoryEntityById(1L)).thenReturn(laboratory);
-        when(propertyService.getPropertyEntityById(1L)).thenReturn(property1);
-        when(propertyService.getPropertyEntityById(2L)).thenReturn(property2);
+        when(laboratoryService.getLaboratoryEntityById(1L)).thenReturn(new Laboratory());
+        when(propertyService.getPropertyEntityById(1L)).thenReturn(new Property());
+        when(propertyService.getPropertyEntityById(2L)).thenReturn(new Property());
         when(personRepository.save(any(Person.class))).thenReturn(person);
-
         PersonDTO result = personService.updatePerson(id, form);
 
         assertNotNull(result);
+        assertEquals("Updated Name", person.getName());
+        assertEquals(LocalDate.of(2023, 1, 1), person.getInitialDate());
+        assertEquals(LocalDate.of(2023, 12, 31), person.getEndDate());
         verify(personRepository, times(1)).findById(id);
         verify(laboratoryService, times(1)).getLaboratoryEntityById(1L);
         verify(propertyService, times(2)).getPropertyEntityById(anyLong());
