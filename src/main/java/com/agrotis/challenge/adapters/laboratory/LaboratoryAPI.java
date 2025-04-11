@@ -30,7 +30,7 @@ public interface LaboratoryAPI {
     ResponseEntity<MessageError> delete(@PathVariable Long id);
 
     @GetMapping("/allcustom")
-    ResponseEntity<List<LaboratoryCustomDTO>> findCustom(@Valid @RequestParam LaboratoryFilterForm filter);
+    ResponseEntity<List<LaboratoryCustomDTO>> findCustom(@Valid @RequestBody LaboratoryFilterForm filter);
 
 
 }

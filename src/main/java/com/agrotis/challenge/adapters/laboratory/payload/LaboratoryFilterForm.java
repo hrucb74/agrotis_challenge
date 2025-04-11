@@ -2,7 +2,6 @@ package com.agrotis.challenge.adapters.laboratory.payload;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
-
 import java.time.LocalDate;
 
 @Data

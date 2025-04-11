@@ -44,7 +44,7 @@ public class LaboratoryController implements LaboratoryAPI{
     }
 
     @Override
-    public ResponseEntity<List<LaboratoryCustomDTO>> findCustom(@Valid @RequestParam LaboratoryFilterForm filter) {
+    public ResponseEntity<List<LaboratoryCustomDTO>> findCustom(@Valid @RequestBody LaboratoryFilterForm filter) {
         return ResponseEntity.ok(laboratoryService.findLaboratoriesByCustomFilters(filter));
     }
 }
