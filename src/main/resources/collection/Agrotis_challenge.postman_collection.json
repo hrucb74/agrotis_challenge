@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "ed943e21-8c98-4e0b-8ead-a2bf2e603187",
+		"_postman_id": "8e50b631-dbf3-44cc-a495-482f1eac57e1",
 		"name": "Agrotis_challenge",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "43925182",
-		"_collection_link": "https://hendrylroberto.postman.co/workspace/Hendryl-Roberto's-Workspace~f686561e-b9d1-4fd2-854d-504b4f90dd76/collection/43925182-ed943e21-8c98-4e0b-8ead-a2bf2e603187?action=share&source=collection_link&creator=43925182"
+		"_collection_link": "https://hendrylroberto.postman.co/workspace/Hendryl-Roberto's-Workspace~f686561e-b9d1-4fd2-854d-504b4f90dd76/collection/43925182-8e50b631-dbf3-44cc-a495-482f1eac57e1?action=share&source=collection_link&creator=43925182"
 	},
 	"item": [
 		{
@@ -35,7 +35,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"name\": \"John Doe\",\n  \"initialDate\": \"2025-01-01\",\n  \"endDate\": \"2025-12-31\",\n  \"propertyIds\": [1, 2],\n  \"laboratoryId\": 1,\n  \"description\": \"Sample description\"\n}",
+							"raw": "{\n    \"name\": \"Jon doe\",\n    \"initialDate\": \"2022-02-02T17:41:44Z\",\n    \"endDate\": \"2022-02-02T17:41:44Z\",\n    \"propertyInfos\": [\n      {\n        \"id\": 1,\n        \"name\": \"Fazenda modelo 1\"\n      }\n    ],\n    \"laboratory\": {\n      \"id\": 1,\n      \"name\": \"Laboratorio modelo 1\"\n    },\n    \"description\": \"Cliente com interesse em X serviço\"\n  }",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -199,7 +199,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"name\": \"Farm Property\",\n  \"address\": \"123 Country Road\"\n}",
+							"raw": "{\n    \"name\": \"Fazenda modelo 1\",\n    \"address\": \"Zona Rural de Norte Pioneiro Paranaense, PR - CEP xxxxxxxx\"\n  }",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -317,7 +317,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"code\": \"LAB123\",\n  \"name\": \"Main Laboratory\"\n}",
+							"raw": "{\n    \"code\": \"LAB123\",\n    \"name\": \"Laboratorio modelo 1\"\n  }",
 							"options": {
 								"raw": {
 									"language": "json"
