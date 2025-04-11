@@ -1,0 +1,18 @@
+meta {
+  name: Create
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{url}}/{{basePath}}/laboratory
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "code": "LAB123",
+    "name": "Main Laboratory"
+  }
+}

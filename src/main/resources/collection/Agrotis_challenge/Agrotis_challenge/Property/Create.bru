@@ -1,0 +1,18 @@
+meta {
+  name: Create
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{url}}/{{basePath}}/property
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "Farm Property",
+    "address": "123 Country Road"
+  }
+}
