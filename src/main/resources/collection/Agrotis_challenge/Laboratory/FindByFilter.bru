@@ -1,0 +1,22 @@
+meta {
+  name: FindByFilter
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{url}}/{{basePath}}/laboratory/allcustom
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "personInitialDateStart": "2025-01-01",
+    "personInitialDateEnd": "2025-12-31",
+    "personEndDateStart": "2025-06-01",
+    "personEndDateEnd": "2025-12-31",
+    "observationKeyword": "example",
+    "minPeopleCount": 5
+  }
+}

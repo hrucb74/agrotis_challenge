@@ -1,0 +1,18 @@
+meta {
+  name: Update
+  type: http
+  seq: 3
+}
+
+put {
+  url: {{url}}/{{basePath}}/property/1
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "Farm Property2",
+    "address": "123 Country Road"
+  }
+}

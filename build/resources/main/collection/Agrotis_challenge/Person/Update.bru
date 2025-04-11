@@ -1,0 +1,22 @@
+meta {
+  name: Update
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{url}}/{{basePath}}/person/1
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "John Doe",
+    "initialDate": "2025-01-01",
+    "endDate": "2025-12-31",
+    "propertyIds": [1, 2],
+    "laboratoryId": 1,
+    "description": "Sample description"
+  }
+}

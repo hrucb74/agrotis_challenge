@@ -1,0 +1,390 @@
+{
+	"info": {
+		"_postman_id": "8e50b631-dbf3-44cc-a495-482f1eac57e1",
+		"name": "Agrotis_challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43925182",
+		"_collection_link": "https://hendrylroberto.postman.co/workspace/Hendryl-Roberto's-Workspace~f686561e-b9d1-4fd2-854d-504b4f90dd76/collection/43925182-8e50b631-dbf3-44cc-a495-482f1eac57e1?action=share&source=collection_link&creator=43925182"
+	},
+	"item": [
+		{
+			"name": "Person",
+			"item": [
+				{
+					"name": "FindAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/{{basePath}}/person?page=0&size=10",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{basePath}}",
+								"person"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Jon doe\",\n    \"initialDate\": \"2022-02-02T17:41:44Z\",\n    \"endDate\": \"2022-02-02T17:41:44Z\",\n    \"propertyInfos\": [\n      {\n        \"id\": 1,\n        \"name\": \"Fazenda modelo 1\"\n      }\n    ],\n    \"laboratory\": {\n      \"id\": 1,\n      \"name\": \"Laboratorio modelo 1\"\n    },\n    \"description\": \"Cliente com interesse em X serviço\"\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/{{basePath}}/person",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{basePath}}",
+								"person"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/{{basePath}}/person/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{basePath}}",
+								"person",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"John Doe\",\n  \"initialDate\": \"2025-01-01\",\n  \"endDate\": \"2025-12-31\",\n  \"propertyIds\": [1, 2],\n  \"laboratoryId\": 1,\n  \"description\": \"Sample description\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/{{basePath}}/person/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{basePath}}",
+								"person",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/{{basePath}}/person/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{basePath}}",
+								"person",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Property",
+			"item": [
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/{{basePath}}/property/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{basePath}}",
+								"property",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/{{basePath}}/property/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{basePath}}",
+								"property",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Farm Property2\",\n  \"address\": \"123 Country Road\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/{{basePath}}/property/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{basePath}}",
+								"property",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Fazenda modelo 1\",\n    \"address\": \"Zona Rural de Norte Pioneiro Paranaense, PR - CEP xxxxxxxx\"\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/{{basePath}}/property",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{basePath}}",
+								"property"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/{{basePath}}/property",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{basePath}}",
+								"property"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Laboratory",
+			"item": [
+				{
+					"name": "FindAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/{{basePath}}/laboratory",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{basePath}}",
+								"laboratory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/{{basePath}}/laboratory/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{basePath}}",
+								"laboratory",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindByFilter",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"personInitialDateStart\": \"2025-01-01\",\n  \"personInitialDateEnd\": \"2025-12-31\",\n  \"personEndDateStart\": \"2025-06-01\",\n  \"personEndDateEnd\": \"2025-12-31\",\n  \"observationKeyword\": \"example\",\n  \"minPeopleCount\": 5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/{{basePath}}/laboratory/allcustom",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{basePath}}",
+								"laboratory",
+								"allcustom"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"LAB123\",\n    \"name\": \"Laboratorio modelo 1\"\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/{{basePath}}/laboratory",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{basePath}}",
+								"laboratory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"code\": \"LAB123\",\n  \"name\": \"Main Laboratory\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/{{basePath}}/laboratory/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{basePath}}",
+								"laboratory",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/{{basePath}}/laboratory/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{basePath}}",
+								"laboratory",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

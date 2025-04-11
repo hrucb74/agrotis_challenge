@@ -1,0 +1,30 @@
+meta {
+  name: Create
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{url}}/{{basePath}}/person
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "Jon doe",
+    "initialDate": "2022-02-02T17:41:44Z",
+    "endDate": "2022-02-02T17:41:44Z",
+    "propertyInfos": [
+      {
+        "id": 1,
+        "name": "Fazenda modelo 1"
+      }
+    ],
+    "laboratory": {
+      "id": 1,
+      "name": "Laboratorio modelo 1"
+    },
+    "description": "Cliente com interesse em X serviço"
+  }
+}

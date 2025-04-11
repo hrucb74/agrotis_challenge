@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.agrotis.challenge.service.PersonServiceImplTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2025-04-11T12:51:42.602Z" hostname="hendryl-not" time="0.494">
+  <properties/>
+  <testcase name="testCreatePerson()" classname="com.agrotis.challenge.service.PersonServiceImplTest" time="0.292"/>
+  <testcase name="testFindPersonById()" classname="com.agrotis.challenge.service.PersonServiceImplTest" time="0.011"/>
+  <testcase name="testDeletePerson_NotFound()" classname="com.agrotis.challenge.service.PersonServiceImplTest" time="0.01"/>
+  <testcase name="testUpdatePerson()" classname="com.agrotis.challenge.service.PersonServiceImplTest" time="0.014"/>
+  <testcase name="testDeletePerson()" classname="com.agrotis.challenge.service.PersonServiceImplTest" time="0.007"/>
+  <testcase name="testFindPersonById_NotFound()" classname="com.agrotis.challenge.service.PersonServiceImplTest" time="0.008"/>
+  <testcase name="testFindAllPeople()" classname="com.agrotis.challenge.service.PersonServiceImplTest" time="0.136"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.agrotis.challenge.service.PropertyServiceImplTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2025-04-11T12:51:43.104Z" hostname="hendryl-not" time="0.189">
+  <properties/>
+  <testcase name="testFindPropertyById()" classname="com.agrotis.challenge.service.PropertyServiceImplTest" time="0.124"/>
+  <testcase name="testCreateProperty_AlreadyExists()" classname="com.agrotis.challenge.service.PropertyServiceImplTest" time="0.007"/>
+  <testcase name="testFindPropertyById_NotFound()" classname="com.agrotis.challenge.service.PropertyServiceImplTest" time="0.007"/>
+  <testcase name="testUpdateProperty()" classname="com.agrotis.challenge.service.PropertyServiceImplTest" time="0.007"/>
+  <testcase name="testCreateProperty()" classname="com.agrotis.challenge.service.PropertyServiceImplTest" time="0.01"/>
+  <testcase name="testFindAllProperties()" classname="com.agrotis.challenge.service.PropertyServiceImplTest" time="0.006"/>
+  <testcase name="testDeleteProperty()" classname="com.agrotis.challenge.service.PropertyServiceImplTest" time="0.006"/>
+  <testcase name="testDeleteProperty_HasPeople()" classname="com.agrotis.challenge.service.PropertyServiceImplTest" time="0.01"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

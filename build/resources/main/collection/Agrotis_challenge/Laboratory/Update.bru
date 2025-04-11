@@ -1,0 +1,18 @@
+meta {
+  name: Update
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{url}}/{{basePath}}/laboratory/1
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "code": "LAB123",
+    "name": "Main Laboratory"
+  }
+}
