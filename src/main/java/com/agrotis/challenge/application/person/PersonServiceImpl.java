@@ -26,14 +26,13 @@ public class PersonServiceImpl implements PersonService {
 
     @Override
     public PersonDTO createPerson(PersonForm Personform) {
-        Laboratory laboratory = laboratoryService.getLaboratoryEntityById(Personform.getLaboratoryId());
+        Laboratory laboratory = laboratoryService.getLaboratoryEntityById(Personform.getLaboratory().getId());
         validatePersonExists(Personform.getName(), laboratory.getId());
 
         Person person = new Person(Personform.getName(), Personform.getInitialDate(), Personform.getEndDate(), laboratory);
         if (Personform.getDescription() != null) person.setDescription(Personform.getDescription());
-
-        List<Property> properties = Personform.getPropertyIds().stream()
-                .map(propertyService::getPropertyEntityById)
+        List<Property> properties = Personform.getPropertyInfos().stream()
+                .map(propertyDTO -> propertyService.getPropertyEntityById(propertyDTO.getId()))
                 .toList();
         person.setProperties(properties);
 
@@ -54,7 +53,7 @@ public class PersonServiceImpl implements PersonService {
     @Override
     public PersonDTO updatePerson(Long id, PersonForm Personform) {
         Person person = getPersonEntityById(id);
-        Laboratory laboratory = laboratoryService.getLaboratoryEntityById(Personform.getLaboratoryId());
+        Laboratory laboratory = laboratoryService.getLaboratoryEntityById(Personform.getLaboratory().getId());
 
         if (!person.getName().equals(Personform.getName()) ||
                 !person.getLaboratory().getId().equals(laboratory.getId())) {
@@ -67,8 +66,8 @@ public class PersonServiceImpl implements PersonService {
         person.setLaboratory(laboratory);
         if (Personform.getDescription() != null) person.setDescription(Personform.getDescription());
 
-        List<Property> properties = Personform.getPropertyIds().stream()
-                .map(propertyService::getPropertyEntityById)
+        List<Property> properties = Personform.getPropertyInfos().stream()
+                .map(propertyDTO -> propertyService.getPropertyEntityById(propertyDTO.getId()))
                 .toList();
         person.setProperties(properties);
 

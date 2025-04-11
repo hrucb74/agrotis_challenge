@@ -19,6 +19,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 
+import java.time.LocalDate;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -73,7 +74,7 @@ class PersonServiceImplTest {
     @Test
     void testFindPersonById() {
         Long id = 1L;
-        Person person = new Person();
+        Person person = new Person("John Doe", LocalDate.now(), LocalDate.now().plusDays(1), new Laboratory());
         when(personRepository.findById(id)).thenReturn(Optional.of(person));
 
         PersonDTO result = personService.findPersonById(id);
@@ -112,6 +113,7 @@ class PersonServiceImplTest {
         form.setPropertyIds(List.of(1L, 2L));
 
         Person person = new Person();
+        person.setName("Original Name");
         Laboratory laboratory = new Laboratory();
         Property property1 = new Property();
         Property property2 = new Property();

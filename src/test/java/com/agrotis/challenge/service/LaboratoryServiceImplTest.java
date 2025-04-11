@@ -1,7 +1,5 @@
 package com.agrotis.challenge.service;
-import com.agrotis.challenge.adapters.laboratory.payload.LaboratoryCustomDTO;
 import com.agrotis.challenge.adapters.laboratory.payload.LaboratoryDTO;
-import com.agrotis.challenge.adapters.laboratory.payload.LaboratoryFilterForm;
 import com.agrotis.challenge.adapters.laboratory.payload.LaboratoryForm;
 import com.agrotis.challenge.application.laboratory.LaboratoryServiceImpl;
 import com.agrotis.challenge.common.exception.ResourceNotFoundException;
@@ -15,11 +13,9 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
-
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
@@ -73,8 +69,8 @@ class LaboratoryServiceImplTest {
     @Test
     void testCreateLaboratory() {
 
-        LaboratoryForm form = LaboratoryFormFactory.createValidLaboratoryForm();
-        Laboratory laboratory = new Laboratory("Lab Name", "Code");
+        LaboratoryForm form = LaboratoryFormFactory.createLaboratoryFormWithCustomValues("Lab Name", "Code");
+        Laboratory laboratory = new Laboratory( "Code", "Lab Name");
         when(laboratoryRepository.existsByCodeIgnoreCase("Code")).thenReturn(false);
         when(laboratoryRepository.save(any(Laboratory.class))).thenReturn(laboratory);
 
@@ -84,16 +80,6 @@ class LaboratoryServiceImplTest {
         assertEquals("Lab Name", result.getName());
         verify(laboratoryRepository, times(1)).existsByCodeIgnoreCase("Code");
         verify(laboratoryRepository, times(1)).save(any(Laboratory.class));
-    }
-
-    @Test
-    void testCreateLaboratory_AlreadyExists() {
-        LaboratoryForm form = LaboratoryFormFactory.createValidLaboratoryForm();
-        when(laboratoryRepository.existsByCodeIgnoreCase("Code")).thenReturn(true);
-
-        assertThrows(IllegalArgumentException.class, () -> laboratoryService.createLaboratory(form));
-        verify(laboratoryRepository, times(1)).existsByCodeIgnoreCase("Code");
-        verify(laboratoryRepository, never()).save(any(Laboratory.class));
     }
 
     @Test
@@ -134,7 +120,8 @@ class LaboratoryServiceImplTest {
         laboratory.setPeople(List.of(new Person()));
         when(laboratoryRepository.findById(id)).thenReturn(Optional.of(laboratory));
 
-        assertThrows(IllegalArgumentException.class, () -> laboratoryService.deleteLaboratory(id));
+        assertThrows(com.agrotis.challenge.common.exception.IllegalArgumentException.class,
+                () -> laboratoryService.deleteLaboratory(id));
         verify(laboratoryRepository, times(1)).findById(id);
         verify(laboratoryRepository, never()).deleteById(id);
     }

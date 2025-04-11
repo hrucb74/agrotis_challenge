@@ -12,7 +12,6 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -60,7 +59,7 @@ class PropertyServiceImplTest {
 
         when(propertyRepository.existsByNameIgnoreCase("Property Name")).thenReturn(true);
 
-        assertThrows(IllegalArgumentException.class, () -> propertyService.createProperty(form));
+        assertThrows(com.agrotis.challenge.common.exception.IllegalArgumentException.class, () -> propertyService.createProperty(form));
         verify(propertyRepository, times(1)).existsByNameIgnoreCase("Property Name");
         verify(propertyRepository, never()).save(any(Property.class));
     }
@@ -140,7 +139,7 @@ class PropertyServiceImplTest {
         property.setPeople(List.of(new Person()));
         when(propertyRepository.findById(id)).thenReturn(Optional.of(property));
 
-        assertThrows(IllegalArgumentException.class, () -> propertyService.deleteProperty(id));
+        assertThrows(com.agrotis.challenge.common.exception.IllegalArgumentException.class, () -> propertyService.deleteProperty(id));
         verify(propertyRepository, times(1)).findById(id);
         verify(propertyRepository, never()).deleteById(anyLong());
     }

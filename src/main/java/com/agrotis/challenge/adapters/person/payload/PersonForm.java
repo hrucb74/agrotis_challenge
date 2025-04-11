@@ -1,5 +1,7 @@
 package com.agrotis.challenge.adapters.person.payload;
 
+import com.agrotis.challenge.adapters.laboratory.payload.LaboratoryDTO;
+import com.agrotis.challenge.adapters.property.payload.PropertyDTO;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
@@ -15,9 +17,9 @@ public class PersonForm {
     @NotNull
     private LocalDate endDate;
     @NotNull
-    private List<Long> propertyIds;
+    private List<PropertyDTO> propertyInfos;
     @NotNull
-    private Long laboratoryId;
+    private LaboratoryDTO laboratory;
     private String description;
 }
 

@@ -1,6 +1,5 @@
 package com.agrotis.challenge.adapters.property;
 
-import com.agrotis.challenge.adapters.person.payload.PersonDTO;
 import com.agrotis.challenge.adapters.property.payload.PropertyDTO;
 import com.agrotis.challenge.adapters.property.payload.PropertyForm;
 import com.agrotis.challenge.common.messageerror.MessageError;

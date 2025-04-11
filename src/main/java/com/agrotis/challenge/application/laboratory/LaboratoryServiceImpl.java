@@ -29,13 +29,7 @@ public class LaboratoryServiceImpl implements LaboratoryService{
 
     @Override
     public LaboratoryDTO findById(Long id) {
-        Laboratory laboratory = getLaboratoryEntityById(id);
-        return new LaboratoryDTO(
-                laboratory.getId(),
-                laboratory.getName(),
-                laboratory.getCode(),
-                laboratory.getPeople()
-        );
+        return new LaboratoryDTO(getLaboratoryEntityById(id));
     }
 
     @Override
