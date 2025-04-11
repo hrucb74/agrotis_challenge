@@ -12,7 +12,6 @@ import com.agrotis.challenge.infrastructure.persistence.laboratory.LaboratoryRep
 import com.agrotis.challenge.common.messageerror.MessageError;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
 import java.time.LocalDate;
 import java.util.List;
 
@@ -44,7 +43,6 @@ public class LaboratoryServiceImpl implements LaboratoryService{
         validateLaboratoryExists(laboratoryForm.getCode());
 
         Laboratory newLaboratory = new Laboratory(laboratoryForm.getName(), laboratoryForm.getCode());
-        if (laboratoryForm.getPeople() != null) newLaboratory.setPeople(laboratoryForm.getPeople());
 
         return new LaboratoryDTO(laboratoryRepository.save(newLaboratory));
     }
@@ -57,7 +55,6 @@ public class LaboratoryServiceImpl implements LaboratoryService{
 
         existingLaboratory.setName(laboratoryForm.getName());
         existingLaboratory.setCode(laboratoryForm.getCode());
-        if (laboratoryForm.getPeople() != null) existingLaboratory.setPeople(laboratoryForm.getPeople());
 
         return new LaboratoryDTO(laboratoryRepository.save(existingLaboratory));
     }
@@ -70,7 +67,7 @@ public class LaboratoryServiceImpl implements LaboratoryService{
         }
 
         laboratoryRepository.deleteById(id);
-        return MessageError.LABORATORY_DELETED;
+        return MessageError.LABORATORY_DELETED_SUCCESSFULLY;
     }
 
     @Override

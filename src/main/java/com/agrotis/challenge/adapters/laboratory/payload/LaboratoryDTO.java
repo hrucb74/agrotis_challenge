@@ -14,6 +14,9 @@ public class LaboratoryDTO {
     private String name;
     private List<Person> people;
 
+    public LaboratoryDTO() {
+    }
+
     public LaboratoryDTO(Laboratory lab) {
         this.id = lab.getId();
         this.code = lab.getCode();

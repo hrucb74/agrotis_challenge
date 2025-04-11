@@ -13,6 +13,9 @@ public class PersonDTO {
     private String description;
     private String laboratoryName;
 
+    public PersonDTO() {
+    }
+
     public PersonDTO(Person person) {
         this.id = person.getId();
         this.name = person.getName();

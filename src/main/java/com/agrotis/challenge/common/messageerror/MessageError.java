@@ -17,9 +17,11 @@ public enum MessageError {
     PROPERTY_NOT_FOUND(404, "PROPERTY_NOT_FOUND", "Property not found"),
     PROPERTY_ALREADY_EXISTS(409, "PROPERTY_ALREADY_EXISTS", "Property already exists"),
     CANNOT_DELETE_LABORATORY_HAS_PEOPLE(409, "CANNOT_DELETE_LABORATORY_HAS_PEOPLE", "Cannot delete Laboratory with people assigned"),
+    CANNOT_DELETE_PROPERTY_HAS_PEOPLE(409, "CANNOT_DELETE_PROPERTY_HAS_PEOPLE", "Cannot delete Property with people assigned"),
     BAD_REQUEST(400, "BAD_REQUEST", "Bad Request"),
-    PERSON_DELETED(200, "PERSON_DELETED", "Person deleted successfully"),
-    LABORATORY_DELETED(200, "LABORATORY_DELETED", "Laboratory deleted successfully"),
+    PERSON_DELETED_SUCCESSFULLY(200, "PERSON_DELETED_SUCCESSFULLY", "Person deleted successfully"),
+    LABORATORY_DELETED_SUCCESSFULLY(200, "LABORATORY_DELETED_SUCCESSFULLY", "Laboratory deleted successfully"),
+    PROPERTY_DELETED_SUCCESSFULLY(200, "PROPERTY_DELETED_SUCCESSFULLY", "Property deleted successfully"),
     PROPERTY_DELETED(200, "PROPERTY_DELETED", "Property deleted successfully"),;
 
     private final int status;
